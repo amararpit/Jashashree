@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101b3b">
+<title>A Little Universe of Jashashree</title>
+<style>
+  :root { --night:#101b3b; --blue:#1d3158; --lav:#c9b8f2; --pink:#f4c8d8; --cream:#fff5ed; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    margin:0; min-height:100vh; color:var(--cream);
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+      radial-gradient(ellipse at 50% 10%, rgba(112,139,190,.24), transparent 40%),
+      linear-gradient(160deg,#0b1430 0%,#17284c 52%,#26345a 100%);
+    overflow-x:hidden;
+  }
+  .stars, .petals { position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+  .star { position:absolute; width:2px; height:2px; border-radius:50%; background:#fff8e9; opacity:.65; animation:twinkle 3s infinite ease-in-out; }
+  @keyframes twinkle { 50% { opacity:.15; transform:scale(.65); } }
+  .petal { position:absolute; top:-30px; color:#f4c8d8; opacity:.55; animation:fall linear infinite; }
+  @keyframes fall { to { transform:translateY(110vh) rotate(300deg); } }
+  main { position:relative; z-index:1; width:min(760px,92vw); margin:auto; padding:38px 0 70px; }
+  header { min-height:88vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .moon {
+    width:clamp(115px,25vw,170px); aspect-ratio:1; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#fffef0 0%,#f8e9c8 48%,#d8c9b4 75%,#b8b0a9 100%);
+    box-shadow:0 0 28px 8px rgba(255,239,202,.28),0 0 100px 24px rgba(180,194,235,.16);
+    margin-bottom:34px; position:relative;
+  }
+  .moon:after { content:""; position:absolute; width:25%; height:25%; border-radius:50%; background:rgba(174,158,143,.14); top:25%; left:55%; box-shadow:-42px 44px 0 -8px rgba(174,158,143,.15),18px 65px 0 -12px rgba(174,158,143,.15); }
+  .eyebrow { letter-spacing:.22em; text-transform:uppercase; font:11px Arial,sans-serif; color:#d8c8ef; }
+  h1 { font-size:clamp(38px,9vw,68px); font-weight:400; margin:12px 0 10px; color:#fff4e8; text-shadow:0 0 25px rgba(231,202,231,.25); }
+  .subtitle { color:#d9d6e9; font-size:17px; font-style:italic; margin:0 20px 28px; }
+  button {
+    border:1px solid rgba(255,239,226,.55); background:rgba(255,255,255,.08); color:#fff5ed;
+    border-radius:30px; padding:13px 23px; font:14px Arial,sans-serif; letter-spacing:.04em;
+    cursor:pointer; transition:.25s; backdrop-filter:blur(5px);
+  }
+  button:hover { background:rgba(255,255,255,.17); transform:translateY(-2px); }
+  section {
+    display:none; text-align:center; padding:42px 25px; margin:22px 0;
+    border:1px solid rgba(255,235,235,.16); border-radius:24px;
+    background:rgba(255,255,255,.055); box-shadow:0 15px 45px rgba(0,0,0,.12);
+    backdrop-filter:blur(7px); animation:appear .7s ease both;
+  }
+  section.active { display:block; }
+  @keyframes appear { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } }
+  .flower { font-size:30px; margin-bottom:12px; }
+  h2 { font-weight:400; font-size:clamp(26px,6vw,36px); margin:4px 0 18px; color:#f7dce7; }
+  p { font-size:17px; line-height:1.8; color:#e8e4ee; margin:10px auto; max-width:560px; }
+  .meaning { color:#f6d7e2; font-style:italic; font-size:19px; }
+  .nav { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:25px; }
+  .tiny { font:11px Arial,sans-serif; letter-spacing:.12em; color:#c9c6dc; text-transform:uppercase; margin-top:28px; }
+  footer { text-align:center; color:#c9c6dc; font:12px Arial,sans-serif; padding:35px 0 0; }
+  @media (prefers-reduced-motion: reduce) { *,*:before,*:after { animation:none !important; scroll-behavior:auto !important; } }
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div><div class="petals" id="petals"></div>
+<main>
+  <header>
+    <div class="moon" aria-label="A glowing moon"></div>
+    <div class="eyebrow">a small place made with care</div>
+    <h1>Jashashree</h1>
+    <p class="subtitle">A little universe of flowers, moonlight and lovely things.</p>
+    <button onclick="showSection(0)">A little something for you ✧</button>
+    <div class="tiny">made especially for this moment</div>
+  </header>
+
+  <section id="s0" class="active">
+    <div class="flower">🌸</div>
+    <h2>A garden in the night</h2>
+    <p>Some things don't need a grand occasion. Sometimes, a little corner of beauty is reason enough to make someone smile.</p>
+    <p>So here's a tiny universe filled with the calm of moonlight and the softness of flowers.</p>
+    <div class="nav"><button onclick="showSection(1)">Continue ✧</button></div>
+  </section>
+
+  <section id="s1">
+    <div class="flower">🌷 ✨ 🌼</div>
+    <h2>A name with its own beauty</h2>
+    <p class="meaning">Jashashree</p>
+    <p>Often understood as a name associated with glory, grace and prosperity.</p>
+    <p>A lovely meaning for a lovely name.</p>
+    <div class="nav"><button onclick="showSection(0)">Back</button><button onclick="showSection(2)">Next ✧</button></div>
+  </section>
+
+  <section id="s2">
+    <div class="flower">🌙</div>
+    <h2>For the moon lover</h2>
+    <p>The moon doesn't ask the night to notice it. It simply shines, quietly making the sky a little more beautiful.</p>
+    <p>May you always find little reasons to look up, pause for a moment, and smile.</p>
+    <div class="nav"><button onclick="showSection(1)">Back</button><button onclick="showSection(3)">One last thing ✧</button></div>
+  </section>
+
+  <section id="s3">
+    <div class="flower">💐</div>
+    <h2>A little note</h2>
+    <p>I made this small page just to bring a little beauty to your day.</p>
+    <p>I hope life gives you plenty of reasons to feel happy, peaceful and proud of yourself. Keep blooming in your own way, at your own pace.</p>
+    <p>Take care, and don't forget to look at the moon sometimes. 🌙</p>
+    <div class="nav"><button onclick="showSection(2)">Back</button><button onclick="showSection(0)">Visit again ↺</button></div>
+    <div class="tiny">with warm wishes 💙</div>
+  </section>
+  <footer>✿ made of moonlight & little thoughts ✿</footer>
+</main>
+<script>
+  const stars = document.getElementById('stars');
+  for(let i=0;i<95;i++){
+    const s=document.createElement('i'); s.className='star';
+    s.style.left=Math.random()*100+'%'; s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=(Math.random()*4)+'s'; s.style.opacity=(.2+Math.random()*.65);
+    stars.appendChild(s);
+  }
+  const petals=document.getElementById('petals');
+  const symbols=['✿','❀','✧','🌸'];
+  for(let i=0;i<17;i++){
+    const p=document.createElement('span'); p.className='petal';
+    p.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    p.style.left=Math.random()*100+'%'; p.style.animationDuration=(12+Math.random()*18)+'s';
+    p.style.animationDelay=(-Math.random()*25)+'s'; p.style.fontSize=(10+Math.random()*13)+'px';
+    petals.appendChild(p);
+  }
+  function showSection(n){
+    document.querySelectorAll('section').forEach((el,i)=>el.classList.toggle('active',i===n));
+    if(n>0) document.getElementById('s'+n).scrollIntoView({behavior:'smooth',block:'center'});
+    else window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
